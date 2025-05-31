@@ -1,0 +1,33 @@
+{% extends "layouts/master.html" %}
+{% block title %}Create New Post{% endblock %}
+{% block content %}
+  <div class="container">
+    <h2>Create New Post</h2>
+    <form method="POST" action="{% url 'posts:create' %}">
+      {% csrf_token %} {{ form.non_field_errors }}
+      {% for field in form %}
+        <div class="mb-3">
+          {{ field.label_tag }}
+          {{ field }}
+          {{ field.errors }}
+        </div>
+      {% endfor %}
+      
+      {% comment %} <div class="form-group mb-3">
+      <label for="id_title">Title</label>
+      {{ form.title.errors }} {{ form.title }}
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="id_content">Content</label>
+      {{ form.content.errors }} {{ form.content }}
+    </div>
+    <div class="form-group mb-3">
+      <label for="id_content">Image</label>
+      {{ form.content.errors }} {{ form.image }}
+      </div> {% endcomment %}
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="{% url 'posts:index' %}" class="btn btn-secondary">Back</a>
+    </form>
+  </div>
+{% endblock %}
