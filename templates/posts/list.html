@@ -2,7 +2,7 @@
 {% block title %}All Posts{% endblock %}
 {% block content %}
   <h2>All Posts</h2>
-  <table class="table">
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th>Title</th>
@@ -13,8 +13,7 @@
     </thead>
     <tbody>
       {% for post in posts %}
-        <tr>
-          
+        <tr>          
           <td>{{ post.title }}</td>
           <td>{{ post.author }}</td>
           <td>{{ post.content }}</td>
